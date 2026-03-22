@@ -1,7 +1,25 @@
 name: AFKProtection
-version: '1.2-SNAPSHOT'
-main: me.gizzarduhh.afkprotection.AfkProtection
+version: '1.1'
+main: me.Gizzarduhh.afkProtection.AFKProtection
 api-version: '1.21'
 softdepend:
 - LuckPerms
 - PlaceholderAPI
+- WorldGuard
+
+commands:
+  afk:
+    description: Go afk without waiting
+permissions:
+  afkprotection.command.afk:
+    default: true
+    description: Use /afk command
+  afkprotection.bypass:
+    default: false
+    description: Bypass automatic afk and kick
+  afkprotection.bypass.afk:
+    default: false
+    description: Bypass automatic afk
+  afkprotection.bypass.kick:
+    default: false
+    description: Bypass kick

@@ -7,7 +7,7 @@ Default Config:
 ```yaml
 # AFK Protection configuration
 afk:
-  timer: 120
+  timer: 120 # seconds
 
 # Use %player% for display name
 messages:
@@ -33,6 +33,12 @@ suffix:
 #   %afkprotection_suffix%` - configured suffix
 #   %afkprotection_isAFK%` - trueValue or trueValue, if executing player is AFK
 #   %afkprotection_isAFK_<player>%` - trueValue or trueValue, if player is AFK
+#
+# - The timer counts down from configured timer. It gets into negative when player is AFK.
+#   %afkprotection_countdown%` - afk timer of executing player in milliseconds, counts down from configured timer
+#   %afkprotection_countdown_<player>%` - afk timer of player in milliseconds, counts down from configured timer
+#   %afkprotection_countdownSeconds%` - afk timer of executing player in seconds, counts down from configured timer
+#   %afkprotection_countdownSeconds_<player>%` - afk timer of player in seconds, counts down from configured timer
 placeholder:
   trueValue: "true"
   falseValue: "false"

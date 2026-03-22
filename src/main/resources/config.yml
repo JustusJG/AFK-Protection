@@ -1,20 +1,15 @@
 # AFK Protection configuration
-
-# Timer - # of seconds before a player is considered AFK
-# Delay - # of seconds before /afk activates, anti-cheese
 afk:
-  timer: 300
-  delay: 5
+  timer: 10
+  kickTimer: 10 # 0 to instant kick, -1 (or any negative number) to deactivate
 
-# Use %player% for display name, PlaceholderAPI optionally supported
-# %delay% will only be parsed in messages.pending
+# Use %player% for display name
+# disable messages by defining empty string: ""
 messages:
-  broadcast: true
-  +afk: "&e%player% has gone afk"
-  -afk: "&e%player% has returned"
-  pending: "&7AFK in %delay% seconds..."
-  canceled: "&4AFK canceled, you moved!"
-  notaplayer: "&4Only players can be AFK!"
+  +afk: "%player% has gone afk"
+  -afk: "%player% has returned"
+  kickMessage: "You got kicked for being AFK"
+  kickBroadcast: "%player% got kicked for being AFK"
 
 # Below options require LuckPerms
 prefix:
@@ -26,3 +21,20 @@ suffix:
   enabled: false
   value: "💤"
   weight: 1
+
+# Value of prefix and suffix can be accessed if PlaceholderAPI is installed.
+# ...even is LuckPerms is not installed.
+# Placeholders:
+#   %afkprotection_prefix%` - configured prefix
+#   %afkprotection_suffix%` - configured suffix
+#   %afkprotection_isAFK%` - trueValue or trueValue, if executing player is AFK
+#   %afkprotection_isAFK_<player>%` - trueValue or trueValue, if player is AFK
+#
+# - The timer counts down from configured timer. It gets into negative when player is AFK.
+#   %afkprotection_countdown%` - afk timer of executing player in milliseconds, counts down from configured timer
+#   %afkprotection_countdown_<player>%` - afk timer of player in milliseconds, counts down from configured timer
+#   %afkprotection_countdownSeconds%` - afk timer of executing player in seconds, counts down from configured timer
+#   %afkprotection_countdownSeconds_<player>%` - afk timer of player in seconds, counts down from configured timer
+placeholder:
+  trueValue: "true"
+  falseValue: "false"

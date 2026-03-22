@@ -21,12 +21,16 @@ repositories {
     maven {
         url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
     }
+
+    // repo for WorldGuard
+    maven { url "https://maven.enginehub.org/repo/" }
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
     compileOnly("net.luckperms:api:5.5")
     compileOnly("me.clip:placeholderapi:2.11.7")
+    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.15")
 }
 
 tasks {
@@ -34,7 +38,8 @@ tasks {
         // Configure the Minecraft version for our task.
         // This is the only required configuration besides applying the plugin.
         // Your plugin's jar (or shadowJar if present) will be used automatically.
-        minecraftVersion("1.21")
+        minecraftVersion("1.21.11")
+
     }
 }
 
